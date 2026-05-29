@@ -15,4 +15,4 @@ function getMessages(req, res, next){
     res.render("index", {messages: messages})
 }
 
-module.exports = {getMessages};
+module.exports = {getMessages, messages};
