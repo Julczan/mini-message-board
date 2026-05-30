@@ -3,9 +3,12 @@ const { messages } = require("./getMessages");
 function getMessageDetails(req, res, next){
     const {messageId} = req.params
     
-    const message = messages.find(message => message.id = messageId);
+    const foundMessage = messages.find(message => message.id === messageId.toString());
+
+    console.log(foundMessage);
     
-    res.render("message", {message: message})
+    
+    res.render("message", {message: foundMessage})
 }
 
 module.exports = {getMessageDetails}

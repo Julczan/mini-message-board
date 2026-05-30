@@ -1,12 +1,12 @@
 const messages = [
   {
-    id: 1,
+    id: crypto.randomUUID(),
     text: "Hi there!",
     user: "Amando",
     added: new Date(),
   },
   {
-    id: 2,
+    id: crypto.randomUUID(),
     text: "Hello World!",
     user: "Charles",
     added: new Date(),
