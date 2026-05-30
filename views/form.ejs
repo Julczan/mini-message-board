@@ -7,7 +7,7 @@
     <title>Mini Message Board</title>
 </head>
     <body>
-        <h3>Add a new message</h3>
+        <h1>Add a new message</h1>
         <form method="post" action="/new">
             <label for="author">Your name:</label>
             <input name="author" type="text" id="author" placeholder="Bob..." required>
@@ -15,8 +15,8 @@
             <label for="message">Your message:</label>
             <textarea name="message" id="message" placeholder="Hello..." required></textarea>
 
-            <button type="submit">Send</button>
+            <button class="submit-btn" type="submit">Send</button>
         </form>
-        <a href="/">Cancel</a>
+        <a class="cancel-btn" href="/">Cancel</a>
     </body>
 </html>

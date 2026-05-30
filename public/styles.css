@@ -17,9 +17,10 @@ body {
 
 a{
   border: 1px solid var(--btn-border);
+  text-align: center;
 }
 
-.add-btn, .open-btn{
+.add-btn, .open-btn, .submit-btn, .cancel-btn{
   background-color: var(--btn);
   color: var(--text);
   text-decoration: none;
@@ -49,4 +50,32 @@ h1{
   padding: 20px;
   gap: 20px;
   border-radius: 10px;
+}
+
+textarea{
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label{
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+input{
+  border: none;
+  padding: 10px;
+}
+
+.submit-btn{
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border: 1px solid var(--btn-border);
 }
