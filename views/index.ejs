@@ -14,8 +14,8 @@
             <div class="message">
                 <span class="author"><%= message.user %> </span>
                 <span><%= message.text %> </span>
-                <!-- <span><%= message.added %> </span> -->
-                 <a href="/" class="open-btn">Details</a>
+                <% const href = `/message/${message.id}` %>
+                <a href=<%= href %> href class="open-btn">Details</a>
             </div>
        <% }); %>
         </div>
