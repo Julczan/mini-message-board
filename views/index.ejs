@@ -7,12 +7,17 @@
     <title>Mini Message Board</title>
 </head>
 <body>
-    <% messages.forEach((message) => { %>
-        <div>
-            <span><%= message.user %> </span>
-            <span><%= message.text %> </span>
-            <span><%= message.added %> </span>
+    <h1>Mini Message Board</h1>
+    <a href="/new" class="add-btn">Add a new message</a>
+    <div class="messages-container">
+        <% messages.forEach((message) => { %>
+            <div class="message">
+                <span class="author"><%= message.user %> </span>
+                <span><%= message.text %> </span>
+                <!-- <span><%= message.added %> </span> -->
+                 <a href="/" class="open-btn">Details</a>
+            </div>
+       <% }); %>
         </div>
-   <% }); %>
 </body>
 </html>

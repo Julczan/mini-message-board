@@ -1,4 +1,52 @@
 body {
-  background-color: rgba(0, 0, 0, 0.895);
-  color: white;
+  --background-dark: #2D3142;
+  --background: #4F5D75;
+  --background-light: #BFC0C0;
+  --text: #FFFFFF;
+  --btn: #4F5D75;
+  --btn-border: #f16224;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+.author{
+  font-weight: bold;
+}
+
+a{
+  border: 1px solid var(--btn-border);
+}
+
+.add-btn, .open-btn{
+  background-color: var(--btn);
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.open-btn{
+  align-self: flex-end;
+}
+
+h1{
+  text-align: center;
+}
+
+.messages-container{
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message{
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  border-radius: 10px;
 }
