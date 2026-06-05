@@ -1,14 +1,35 @@
 const { insertMessage } = require("../db/queries");
+const { body, validationResult, matchedData } = require("express-validator");
 
-async function postMessage(req, res) {
-  const newMessage = {
-    message: req.body.message,
-    username: req.body.author,
-  };
+const validateUser = [
+  body("username")
+    .trim()
+    .isAlpha()
+    .withMessage(`Name must only contain letters.`)
+    .isLength({ min: 1, max: 10 })
+    .withMessage(`Name must be between 1 and 10 characters.`),
+];
 
-  await insertMessage(newMessage);
+const validateMessage = [
+  body("message")
+    .trim()
+    .isLength({ min: 1, max: 50 })
+    .withMessage("Message must be between 1 and 50 characters."),
+];
 
-  res.redirect("/");
-}
+exports.postMessage = [
+  validateUser,
+  validateMessage,
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).render("form", {
+        errors: errors.array(),
+      });
+    }
+    const { message, username } = matchedData(req);
 
-module.exports = { postMessage };
+    await insertMessage({ message, username });
+    res.redirect("/");
+  },
+];
