@@ -18,8 +18,8 @@
         <%= message.message %></span
       >
       <span
-        ><span class="detail">Created at:</span>
-        <%= message.added %></span
+        ><span class="detail">Created at: (UTC)</span>
+        <%= message.added.toLocaleString() %></span
       >
     </div>
     <a class="cancel-btn" href="/">Go back home</a>

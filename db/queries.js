@@ -12,7 +12,15 @@ async function insetMessage(message, username) {
   ]);
 }
 
+async function getMessage(messageId) {
+  const { rows } = await pool.query("SELECT * FROM messages WHERE id = ($1)", [
+    messageId,
+  ]);
+  return rows;
+}
+
 module.exports = {
   getAllMessages,
   insetMessage,
+  getMessage,
 };

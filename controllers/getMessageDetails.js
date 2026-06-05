@@ -1,12 +1,11 @@
-const { messages } = require("./getMessages");
+const { getMessage } = require("../db/queries");
 
-function getMessageDetails(req, res, next){
-    const {messageId} = req.params
-    
-    const foundMessage = messages.find(message => message.id === messageId.toString());
-    
-    
-    res.render("message", {message: foundMessage})
+async function getMessageDetails(req, res) {
+  const { messageId } = req.params;
+
+  const foundMessage = await getMessage(messageId);
+
+  res.render("message", { message: foundMessage[0] });
 }
 
-module.exports = {getMessageDetails}
+module.exports = { getMessageDetails };
