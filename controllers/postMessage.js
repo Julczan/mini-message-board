@@ -1,16 +1,14 @@
-const { messages } = require("./getMessages");
+const { insertMessage } = require("../db/queries");
 
-function postMessage(req, res, next){
-   const newMessage = {
-      id: crypto.randomUUID(),
-      text: req.body.message,
-      user: req.body.author,
-      added: new Date(),
-   }
+async function postMessage(req, res) {
+  const newMessage = {
+    message: req.body.message,
+    username: req.body.author,
+  };
 
-   messages.push(newMessage);
+  await insertMessage(newMessage);
 
-   res.redirect("/")
+  res.redirect("/");
 }
 
-module.exports = {postMessage}
+module.exports = { postMessage };
