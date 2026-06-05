@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Mini Message Board</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Message details</h1>
     <div class="message">
-        <span><span class="detail">Author:</span> <%= message.user %></span>
-        <span><span class="detail">Message:</span> <%= message.text %></span>
-        <span><span class="detail">Created at:</span> <%= message.added.toLocaleString() %></span>
+      <span
+        ><span class="detail">Author:</span>
+        <%= message.username %></span
+      >
+      <span
+        ><span class="detail">Message:</span>
+        <%= message.message %></span
+      >
+      <span
+        ><span class="detail">Created at:</span>
+        <%= message.added %></span
+      >
     </div>
     <a class="cancel-btn" href="/">Go back home</a>
-</body>
+  </body>
 </html>

@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Mini Message Board</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Mini Message Board</h1>
     <a href="/new" class="add-btn">Add a new message</a>
     <div class="messages-container">
-        <% messages.forEach((message) => { %>
-            <div class="message">
-                <span class="author"><%= message.user %> </span>
-                <span><%= message.text %> </span>
-                <% const href = `/message/${message.id}` %>
-                <a href=<%= href %> href class="open-btn">Details</a>
-            </div>
-       <% }); %>
-        </div>
-</body>
+      <% messages.forEach((message) => { %>
+      <div class="message">
+        <span class="author"><%= message.username %> </span>
+        <span><%= message.message %> </span>
+        <a href="message/<%= message.id %>" href class="open-btn">Details</a>
+      </div>
+      <% }); %>
+    </div>
+  </body>
 </html>
