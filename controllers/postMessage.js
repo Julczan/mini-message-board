@@ -1,4 +1,3 @@
-const { insertMessage } = require("../db/queries");
 const { body, validationResult, matchedData } = require("express-validator");
 
 const validateUser = [
@@ -29,7 +28,7 @@ exports.postMessage = [
     }
     const { message, username } = matchedData(req);
 
-    await insertMessage({ message, username });
+    await message.insertMessage({ message, username });
     res.redirect("/");
   },
 ];

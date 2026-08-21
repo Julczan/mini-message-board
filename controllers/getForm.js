@@ -1,5 +1,5 @@
-function getForm(req, res, next){
-    res.render("form");
+function getForm(req, res, next) {
+  res.render("form");
 }
 
-module.exports = {getForm}
+module.exports = { getForm };

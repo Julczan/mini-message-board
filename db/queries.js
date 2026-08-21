@@ -1,26 +1,26 @@
 const pool = require("./pool");
 
-async function getAllMessages() {
-  const { rows } = await pool.query("SELECT * FROM messages");
-  return rows;
+class Message {
+  async getAllMessages() {
+    const { rows } = await pool.query("SELECT * FROM messages");
+    return rows;
+  }
+
+  async insertMessage({ message, username }) {
+    await pool.query(
+      "INSERT INTO messages (message, username) VALUES ($1, $2)",
+      [message, username],
+    );
+  }
+  async getMessage(messageId) {
+    const { rows } = await pool.query(
+      "SELECT * FROM messages WHERE id = ($1)",
+      [messageId],
+    );
+    return rows;
+  }
 }
 
-async function insertMessage({ message, username }) {
-  await pool.query("INSERT INTO messages (message, username) VALUES ($1, $2)", [
-    message,
-    username,
-  ]);
-}
+const message = new Message();
 
-async function getMessage(messageId) {
-  const { rows } = await pool.query("SELECT * FROM messages WHERE id = ($1)", [
-    messageId,
-  ]);
-  return rows;
-}
-
-module.exports = {
-  getAllMessages,
-  insertMessage,
-  getMessage,
-};
+module.exports = message;
